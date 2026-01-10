@@ -6,7 +6,8 @@ Calculations to perform: The final goal of the computations is to calculate the 
 
 Code is reproducible using the Assignment_1.R script.
 
-Data files were too large (>300 MB) to upload and, therefore, were not included in the version control.
+Data files were too large (>300 MB) to upload and instead can be accessed on OneDrive using the following link: https://mcmasteru365-my.sharepoint.com/:f:/g/personal/bsatay_mcmaster_ca/IgAYWpki92rSTba19Oxq0XcwAdYKtdcHXSGgiD6b1uk7c6U?e=kVD4Zg. 
+How to use data: 'Data' folder should be placed within the Assignment 1 directory
 
 References:
 - https://www.geeksforgeeks.org/r-language/how-to-add-header-to-dataframe-in-r/
