@@ -7,14 +7,12 @@ df = read.delim(file, header = FALSE, quote = "", stringsAsFactors = FALSE)
 head(df)
 
 # Add header to df with appropriate col names
-# ref: https://www.geeksforgeeks.org/r-language/how-to-add-header-to-dataframe-in-r/
 colnames(df) = c("qseqid", "sseqid", "pident", "length", "mismatch", "gapopen", "evalue", "bitscore")
 head(df)
 str(df)
 
 # Use RegEx to separate the gene name from the qseqid column - perhaps clean it up a little bit
 # so it only contains the gene name itself
-# ref: https://www.geeksforgeeks.org/r-language/how-to-split-column-into-multiple-columns-in-r-dataframe/
 library(stringr)
 df[c("gene1", "gene2", "gene3", "gene4", "gene5")] <- str_split_fixed(df$qseqid, '_', 5)
 str(df)
@@ -32,13 +30,11 @@ str(df)
 
 colnames(df)
 # Filter for entries >=95 pident (percent identity) or evalue <= 1e-5
-# ref = https://dplyr.tidyverse.org/reference/filter.html
 df <- filter(df, pident >= 95 & evalue <= 1e-5)
 nrow(df) # check how many observations now
 
 
 # Calculate metrics for each gene (min/median/max bitscores and min evalue):
-# ref: https://dplyr.tidyverse.org/reference/summarise.html#:~:text=summarise()%20creates%20a%20new,and%20summarize()%20are%20synonyms.
 
 # min bit scores
 min_bitscore_by_gene <- summarise(group_by(df, gene_name),bitscore_min = min(bitscore))
@@ -59,7 +55,6 @@ min_evalue_by_gene <- summarise(group_by(df, gene_name),evalue_min = min(evalue)
 nrow(min_evalue_by_gene)
 
 # Create a summary gene metrics table for easier merging later if needed
-# ref: https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/merge
 gene_metrics <- merge(min_bitscore_by_gene, max_bitscore_by_gene, by = "gene_name", all.x=TRUE)
 gene_metrics <- merge(gene_metrics, median_bitscore_by_gene, by = "gene_name", all.x=TRUE)
 gene_metrics <- merge(gene_metrics, min_evalue_by_gene, by = "gene_name", all.x=TRUE)
