@@ -2,12 +2,15 @@ For this week's assignment, I will use the output of a blast query of Xenopus la
 
 The biological relevance of it is that I'd like to explore the gene content from the laevis query of the longipes contigs. This is one of the exploratory methods to help candidate contigs for sex-linkage.
 
+BMB: can you be more specific about "explore"? Which contigs are most interesting? High gene density?
+
 Calculations to perform: The final goal of the computations is to calculate the gene density of the contigs. Several steps are needed to achieve this, including merging the blast output with the full contig lengths. Other metrics on the blast hits were computed for reference in future work.
 
 Code is reproducible using the Assignment_1.R script.
 
 Data files were too large (>300 MB) to upload and instead can be accessed on OneDrive using the following link: https://mcmasteru365-my.sharepoint.com/:f:/g/personal/bsatay_mcmaster_ca/IgAYWpki92rSTba19Oxq0XcwAdYKtdcHXSGgiD6b1uk7c6U?e=kVD4Zg. 
 How to use data: 'Data' folder should be placed within the Assignment 1 directory
+**BMB:** it's actually 'data' (lowercase 'd'), according to your script
 
 References:
 - https://www.geeksforgeeks.org/r-language/how-to-add-header-to-dataframe-in-r/
