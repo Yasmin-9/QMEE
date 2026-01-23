@@ -29,8 +29,8 @@ How to use data: 'Data' folder should be placed within the Assignment 1 director
 For this assignment, I'll be exploring the output of ANGSD association from mapped pair reads of Xenopus longipes. ANGSD stands for Analysis of Next Generation Sequencing Data
 Similar to the previous assignment, the overarching  goal is to identify candidate contigs that could contain sex determining genes.
 Specifically, ANGSD association is another yet important approach to do, as it uses genotype likelihoods to perform genetic association. 
-For each polymorphic position, the minor allele frequency is computed and the likelihood ratio statisitc (LRT) and Pvalue is also generated.
-From this information, other paramaeters such as SNP density or the Negatie Log(P) will be computer to to distinguish candidate contigs and prepare the data for future exploration.
+For each polymorphic position, the minor allele frequency is computed and the likelihood ratio statistic (LRT) and Pvalue is also generated.
+From this information, other parameters such as SNP density or the Negative Log(P) will be computer to to distinguish candidate contigs and prepare the data for future exploration.
 
 ### How to find the scripts
 Scripts can be found in the Assignment 2 directory inside the scripts folder:
@@ -47,6 +47,30 @@ The next steps would be 'annotating' the candidate contigs and using the X.laevi
 - https://www.popgen.dk/angsd/index.php/Association
 - https://www.datacamp.com/tutorial/make-histogram-basic-r
 - https://www.datacamp.com/doc/r/subset
+
+
+# Assignment 3
+For this assignment, I would like to visualize the -log(P) distribution of my contigs and use the ggplot package to discern and highlight outliers or interesting contigs. 
+Previously I was performing this using filtering and sub-setting dataframes. Now using visualization perhaps it's more efficient to do a rough exploration across all contigs. 
+Such contigs are 'interesting' because their high -log10(P) suggests a possible sex-linkage or sex-biased expressed. 
+
+### Note: 
+1) Lines 53-79 is a plot I experimented with which didn't produce much information and may in fact confuse 
+I left it just to show my process but it doesn't have to be considered. 
+
+2) In some dataframe names and plots I referred to the plotted contigs as 'sig' short for significant 
+This does not indicate that I consider them significant, they are merely interesting
+The 'sig' convention is just more convenient.
+
+### How to find the scripts
+There is only one main script: main.R that can be ran in the Assignment_3 directory. 
+Data is available within the data folder
+
+### References: 
+- https://www.geeksforgeeks.org/r-language/rotating-x-axis-labels-and-changing-theme-in-ggplot2/
+- https://ggplot2.tidyverse.org/
+- https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/ifelse
+- https://www.geeksforgeeks.org/r-language/size-of-points-in-ggplot2-comparable-across-plots-in-r/
 
 
 
