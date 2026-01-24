@@ -2,11 +2,14 @@ library(dplyr)
 library(ggplot2)
 library(forcats)
 
-# Read the angsd association output file
+## Read the angsd association output file
+## BMB: not super-important, but: try to be consistent with
+##   assignment operators (use *either* <- or = throughout)
 file = "Assignment_3/data/out_additive_F1.lrt0"
 df <- read.table(file, header=TRUE)
 clean_df <- filter(df, Frequency >= 0.1)
 # save clean df as RDS object for easier usability
+## BMB: are you doing this or not?
 
 # Read the contig length file
 bed_file = "Assignment_3/data/contig_length.bed"
@@ -28,6 +31,8 @@ df_merged <- merge(clean_df, contig_length, by= "Contig", all.x=TRUE)
 # Merge SNP count into the df_merged
 df_count <- merge(df_merged, SNP_count, by= "Contig", all.x=TRUE)
 
+## BMB: shouldn't you be saving the merged object here (and continuing with a separate script)?
+
 # Calculate the -log(P) 
 df_final <- mutate(df_count, Neg_log_P = -log10(P))
 
@@ -37,6 +42,23 @@ plot1 <- (ggplot(df_final, aes(x=Length, y=Neg_log_P))
           + ggtitle("Length(integer) vs. -log10(P) of All Contigs")
 )
 print(plot1)
+
+## BMB: with so many points, there are a lot of things you can do to improve
+## (transparency, hexbin plots, density plots ...)
+
+print(ggplot(df_final, aes(x=Length, y=Neg_log_P))
+      + geom_hex()
+      + scale_fill_viridis_c()
+      )
+
+## OR:
+## https://cran.r-project.org/web/packages/ggpointdensity/readme/README.html
+library(ggpointdensity)
+print(ggplot(df_final, aes(x=Length, y=Neg_log_P))
+      + geom_pointdensity()
+      + scale_color_viridis_c()
+      )
+## a little slow but maybe worth it ...
 
 # From this plot, I would like to narrow down the points with -log10(P) > 5 
 print(plot1 + geom_hline(yintercept = 5))
@@ -49,6 +71,13 @@ plot_sig <- (ggplot(df_sig, aes(x=Length, y=Neg_log_P))
              + ggtitle("Length(integer) vs. -log10(P) of Interesting Contigs")
 )
 print(plot_sig)
+
+## BMB: you can do this more compactly by adding the new data
+## (needs ggplot >= version 4.0, I think: otherwise use %+%
+(plot_sig
+  + df_sig
+  + ggtitle("Length(integer) vs. -log10(P) of Interesting Contigs")
+)
 
 # Alternate the colors of the contigs to get a sense of how many contigs we're dealing with 
 # 
@@ -112,6 +141,9 @@ plot_sig_contig <- (ggplot(sorted_df_sig, aes(x=Contig, y=Neg_log_P))
                + ggtitle("Contig vs. -log10(P)")
 )
 print(plot_sig_contig + theme(axis.text.x = element_text(angle = 45, hjust = 1)))
+## BMB: consider flipping x/y so you don't need to rotate the contig length labels?
+## you could also strip the "contig_" part from the factor levels/x-axis labels
+## to save space (gsub() or stringr::str_remove())
 
 # With this plot, the name of contigs we deem 'interesting' to explore their gene content can be pulled 
 
@@ -125,8 +157,8 @@ str(sorted_df_sig)
 plot_sig_size <- (ggplot(sorted_df_sig, aes(x=Contig, y=Neg_log_P, size = Length))
                   + geom_point()
                   + ggtitle("Contig vs. -log10(P) with Length as guide")
-                  
 )
+## BMB: title is redundant (although not necessarily doing any harm)
 
 print(plot_sig_size + theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
       + guides(size = "none")) # to remove the legend for size
@@ -141,5 +173,10 @@ print(plot_sig_size + theme(axis.text.x = element_text(angle = 45, hjust = 1))
 # if any other contigs can be considered interesting enough to explore gene content
 # This can be achieved using facet_wrap to meaningfully display such a large no. of contigs
 
+## BMB: still a little unclear on the magnitude of the next step -- are we talking
+## about 30,000 unique x-axis locations (!!)? At a large enough data size, it gets
+## silly to try to look at everything - some kind of thoughtful filter (like the
+## one you've done here) or graphical way of picking out the 'interesting' things
+## from a larger set is necessary ...
 
-
+## mark: 2.1
