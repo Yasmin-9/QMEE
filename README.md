@@ -73,4 +73,10 @@ Data is available within the data folder
 - https://www.geeksforgeeks.org/r-language/size-of-points-in-ggplot2-comparable-across-plots-in-r/
 
 
+# Assignment 4
+For this assignment, I discussed the soundness of the statistical methods and reporting of the study  by Kosmopoulos et al. titled Co-inoculation with novel nodule-inhabiting bacteria reduces the benefits of legume-rhizobium symbiosis
+
+### References:
+- Kosmopoulos, J. C., Batstone-Doyle, R. T., & Heath, K. D. (2024). Co-inoculation with novel nodule-inhabiting bacteria reduces the benefits of legume-rhizobium symbiosis. Canadian journal of microbiology, 70(7), 275–288. https://doi.org/10.1139/cjm-2023-0209
+
 
