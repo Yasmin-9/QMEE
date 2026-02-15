@@ -81,3 +81,26 @@ For this assignment, I discussed the soundness of the statistical methods and re
 
 # Assignment 5
 For this assignment, I described my data and the questions I'll be asking about the data using measurement theory guided by the steps in Voje et al. 2023 Figure 1. I also described one comparison I'll be performing and we will decide a difference is 'important'
+
+
+# Assignment 6
+For this assignment, I used the Dry Eye Disease Dataset from Kaggle - source can be found in the references below - to explore the correlation between Dry Eye Disease and predictive parameters. 
+The hypothesis follows as: The instances of dry eye disease increase with average screen time which varies with sleep duration
+To test this hypothesis, I used a Generalized Linear  Model (GLM) because the response variable - presence or absence of Dry Eye Disease - is a binomial variable. 
+I decided to use an interaction model to explore the effect of sleep duration and average screen time (not independently) on occurance of dry eye disease
+
+### How to use the scripts 
+cleanup_script.R contains the clean up of the dataset that will produce an RDS object 
+model_script.R reads in the RDS object and performs the modeling and diagnostic steps. 
+
+### References: 
+- Dataeset: https://www.kaggle.com/datasets/dakshnagra/dry-eye-disease
+- https://github.com/florianhartig/DHARMa/issues/396
+- https://steffilazerte.ca/posts/dharma/
+- https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/glm
+- https://www.sthda.com/english/articles/39-regression-model-diagnostics/161-linear-regression-assumptions-and-diagnostics-in-r-essentials/
+
+
+
+
+
