@@ -79,6 +79,12 @@ For this assignment, I discussed the soundness of the statistical methods and re
 ### References:
 - Kosmopoulos, J. C., Batstone-Doyle, R. T., & Heath, K. D. (2024). Co-inoculation with novel nodule-inhabiting bacteria reduces the benefits of legume-rhizobium symbiosis. Canadian journal of microbiology, 70(7), 275–288. https://doi.org/10.1139/cjm-2023-0209
 
+JD: This is interesting and thoughtful. I am not sure I agree with everything, though. In particular, I think that language of “no clear impact” vs. “significant effect”, is an improvement on the state of most fields (although I agree that being consistent would be even better). I agree that selecting plants to go forward based on “significant impact” is problematic; no inferences (specifically unimportance) should be based on high P value alone. I'm not sure I agree about percentages vs. units. I'm also not against reporting P>0.1 – what do you learn from the exact P value that you wouldn't learn from the CI? Maybe say that they should report the CI (as I think they do here), and if they _can't_ then the actual P value gives us some idea of uncertainty.
+
+JD: Try using wider margins and bigger fonts: text is easiest to read when there are <80 characters per line (70-75 is best, I think).
+
+Grade: 2/3
+
 # Assignment 5
 For this assignment, I described my data and the questions I'll be asking about the data using measurement theory guided by the steps in Voje et al. 2023 Figure 1. I also described one comparison I'll be performing and we will decide a difference is 'important'
 
