@@ -107,6 +107,17 @@ model_script.R reads in the RDS object and performs the modeling and diagnostic 
 - https://www.sthda.com/english/articles/39-regression-model-diagnostics/161-linear-regression-assumptions-and-diagnostics-in-r-essentials/
 
 
+# Assignment 7
+For this assignment, I am using the same dataset as the previous one, testing the same hypothesis. I used other diagnostic plots to check the specificity of the model, looked at the summary and plotted the Effects plot for interpretation
+
+### How to use the scripts 
+cleanup_script.R contains the clean up of the dataset that will produce an RDS object 
+model_glm_script.R reads in the RDS object and performs the modeling and diagnostic steps.
+
+### References: 
+- https://easystats.github.io/performance/reference/check_model.html 
+- https://www.rdocumentation.org/packages/performance/versions/0.12.4/topics/check_overdispersion
+
 
 
 
