@@ -69,5 +69,6 @@ plot(simulateResiduals(glm_subset))
 # Overall, based on the inital diagnostics and the additional DHARMa analysis, there is no clear indication of a misspecification. 
 # Using a logistic-linear model appears to be adequate for the predictors selected
 
+## JD: I don't see any prediction plot or inferential plot! Grade: 1.1/3
 
 
