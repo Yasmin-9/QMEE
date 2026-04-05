@@ -3,6 +3,13 @@ library(dplyr)
 library(performance)
 library(effects)
 
+## BMB: ideally you would have *one* cleanup script, not copy it
+##  to different places (although this does make individual assignments
+##  less free-standing)
+
+## this isn't quite right, I had to move some stuff around
+##  (you're still saving the output to the A6 directory ...)
+
 # Load RDS object 
 df_clean <- readRDS("Assignment_7/data/clean_dry_eye_dataset.rds")
 
@@ -35,6 +42,9 @@ summary(glm_model)
 # The model is unable to explain the variation as evidenced by the null and residual deviance being very similar
 # Overall, the daya does not clearly support the hypothesis that screen time or sleep duration meaningfully affect the odds of Dry Eye Disease, neither independently or interactively. 
 
+## BMB: can you say anything about the *magnitudes* of the effects/CIs? ('not clear' could mean a noisy observation/experiment
+## or a small effect)
+
 # Plotting the interaction 
 plot(allEffects(glm_model))
 # From the effects plot, the lines for the separate plots are nearly flat,
@@ -44,6 +54,13 @@ plot(allEffects(glm_model))
 # However, the confidence interval bands appear quite large
 # Overall, the effects plot corroborate what the summary statistics have demonstrated. 
 
+## BMB: again, what can you say about these magnitudes? Are these small changes?
+
+
 # Check overdispersion
 check_overdispersion(glm_model)
 # No overdispersion detected
+## BMB: overdispersion check unnecessary for binary data
+
+## mark: 2
+
